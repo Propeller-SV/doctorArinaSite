@@ -18,7 +18,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-4 col-lg-4">
 				<div class="pull-left logo">
-					<a href=""><img src="<?= IMAGES; ?>/logo.png"/></a>
+					<a href="<?= esc_url( home_url( '/' ) ); ?>"><img src="<?= IMAGES; ?>/logo.png"/></a>
 				</div>
 				<div class="pull-left logo-text">
 					<h5><?php bloginfo( 'name' ); ?></h5>
