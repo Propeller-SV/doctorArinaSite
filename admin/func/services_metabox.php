@@ -36,42 +36,24 @@ function services_options() {
 	?>
 		<div class="service_heading">
 			<label for="service_heading">Заголовок</label>
-			<input type="text" id="service_heading" name="service[heading]" value="<?= $services_data['heading']; ?>" size="50">
+			<input type="text" id="service_heading" name="service[heading]" value="<?= isset($services_data['heading']) ? $services_data['heading'] : '' ; ?>" size="50">
 		</div>
 		<div class="service_comment">
 			<label for="service_comment">Комментарий</label>
-			<textarea name="service[comment]" id="service_comment" cols="50" rows="2"><?= $services_data['comment']; ?></textarea>
+			<textarea name="service[comment]" id="service_comment" cols="50" rows="2"><?= isset($services_data['comment']) ? $services_data['comment'] : ''; ?></textarea>
 		</div>
-		<div style="border: 2px solid">
-			<div class="service_1">
-				<label for="service_1">Сервис 1</label>
-				<input type="text" id="service_1" name="service[1][type]" value="" size="50" value="<?= $services_data[1]['type']; ?>"><br>
-				<input type="text" name="service[1][value]" placeholder="стоимость" value="<?= $services_data[1]['value']; ?>"><br>
-				<input type="text" name="service[1][point][]" placeholder="пункт 1" size="70" value="<?= $services_data[1]['point'][0]; ?>"><br>
-				<input type="text" name="service[1][point][]" placeholder="пункт 2" size="70" value="<?= $services_data[1]['point'][1]; ?>"><br>
-				<input type="text" name="service[1][point][]" placeholder="пункт 3" size="70" value="<?= $services_data[1]['point'][2]; ?>"><br>
-			</div>
-		</div><br>
-		<div style="border: 2px solid">
-			<div class="service_2">
-				<label for="service_2">Сервис 2</label>
-				<input type="text" id="service_2" name="service[2][type]" value="<?= $services_data[2]['type']; ?>" size="50"><br>
-				<input type="text" name="service[2][value]" placeholder="стоимость" value="<?= $services_data[2]['value']; ?>"><br>
-				<input type="text" name="service[2][point][]" placeholder="пункт 1" size="70" value="<?= $services_data[2]['point'][0]; ?>"><br>
-				<input type="text" name="service[2][point][]" placeholder="пункт 2" size="70" value="<?= $services_data[2]['point'][1]; ?>"><br>
-				<input type="text" name="service[2][point][]" placeholder="пункт 3" size="70" value="<?= $services_data[2]['point'][2]; ?>"><br>
-			</div>
-		</div><br>
-		<div style="border: 2px solid">
-			<div class="service_3">
-				<label for="service_3">Сервис 3</label>
-				<input type="text" id="service_3" name="service[3][type]" value="<?= $services_data[3]['type']; ?>" size="50"><br>
-				<input type="text" name="service[3][value]" placeholder="стоимость" value="<?= $services_data[3]['value']; ?>"><br>
-				<input type="text" name="service[3][point][]" placeholder="пункт 1" size="70" value="<?= $services_data[3]['point'][0]; ?>"><br>
-				<input type="text" name="service[3][point][]" placeholder="пункт 2" size="70" value="<?= $services_data[3]['point'][1]; ?>"><br>
-				<input type="text" name="service[3][point][]" placeholder="пункт 3" size="70" value="<?= $services_data[3]['point'][2]; ?>"><br>
-			</div>
-		</div>
+		<?php for ($i=0; $i < 3; $i++) : ?>
+			<div style="border: 2px solid">
+				<div class="service_<?= $i+1;?>">
+					<label for="service_<?= $i+1;?>">Сервис <?= $i+1;?></label>
+					<input type="text" id="service_<?= $i+1;?>" name="service[<?= $i+1;?>][type]" size="50" value="<?= isset($services_data[$i+1]['type']) ? $services_data[$i+1]['type'] : ''; ?>"><br>
+					<input type="text" name="service[<?= $i+1;?>][value]" placeholder="стоимость" value="<?= isset($services_data[$i+1]['value']) ? $services_data[$i+1]['value'] : ''; ?>"><br>
+					<input type="text" name="service[<?= $i+1;?>][point][]" placeholder="пункт 1" size="70" value="<?= isset($services_data[$i+1]['point'][0]) ? $services_data[$i+1]['point'][0] : ''; ?>"><br>
+					<input type="text" name="service[<?= $i+1;?>][point][]" placeholder="пункт 2" size="70" value="<?= isset($services_data[$i+1]['point'][1]) ? $services_data[$i+1]['point'][1] : ''; ?>"><br>
+					<input type="text" name="service[<?= $i+1;?>][point][]" placeholder="пункт 3" size="70" value="<?= isset($services_data[$i+1]['point'][2]) ? $services_data[$i+1]['point'][2] : ''; ?>"><br>
+				</div>
+			</div><br>
+		<?php endfor; ?>
 	<?php
 }
 
