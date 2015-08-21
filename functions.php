@@ -79,11 +79,11 @@ add_action( 'wp_enqueue_scripts', 'current_theme_resources' );
  * Add Excerpts for pages
  * ----------------------------------------------------------------------------------------
  */
-if (!function_exists('add_excerpts_to_pages')) :
+if (!function_exists('add_excerpts_to_pages')) {
 	function add_excerpts_to_pages() {
 		add_post_type_support( 'page', 'excerpt' );
 	}
-endif;	/* /add_excerpts_to_pages */
+}	/* /add_excerpts_to_pages */
 add_action( 'init', 'add_excerpts_to_pages' );
 
 /**
@@ -95,8 +95,6 @@ function deliver_mail() {
 
 	// if the submit button is clicked, send the email
 	if ( isset( $_POST['cf_submit'] ) ) {
-
-		// die(print_r($_POST));
 
 		// sanitize form values
 		$name		= sanitize_text_field( $_POST["cf_name"] );
