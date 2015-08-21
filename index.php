@@ -30,7 +30,6 @@
 			</div><!-- end of .paragraph -->
 			<div class="col-xs-12 col-sm-7">
 				<div class="lose">
-					<img class="hidden-sm hidden-md hidden-lg libra" src="img/img4.png"/>
 					<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 						<a href="<?php the_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
 						<p><?php the_excerpt(); ?></p>
@@ -52,21 +51,7 @@
 				<h1 class="text-center">Полезные статьи:</h1>
 			</div>
 		</div>
-		<div class="row">
-			<?php $args = array( 'numberposts' => '3', 'post_type' => 'post' ); ?>
-			<?php $recent_posts = wp_get_recent_posts( $args ); ?>
-			<?php foreach( $recent_posts as $recent ): ?>
-				<div class="col-xs-12 col-sm-4 articles-row">
-					<?php $url = wp_get_attachment_url( get_post_thumbnail_id($recent["ID"]) ); ?>
-					<img src="<?= $url; ?>" alt="...">
-					<div class="article">
-						<h5 class="text-center"><?= $recent["post_title"] ?></h5>
-						<p><?= $recent["post_excerpt"] ?></p>
-						<p class="text-center"><a href="<?= get_permalink( $recent["ID"] ); ?>">Узнать больше</a></p>
-					</div>
-				</div>
-			<?php endforeach; ?>
-		</div><!-- end of .row -->
+		<?php get_template_part( 'recent_posts' ); ?>
 	</div><!-- end of .container -->
 </section><!-- end of .articles -->
 <?php get_footer(); ?>
