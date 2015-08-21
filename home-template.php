@@ -80,36 +80,23 @@
 					</ul>
 				<?php else : ?>
 				<ul class="fa-ul">
-					<li><i class="fa-li fa fa-check"></i>
-						проблемы в отношениях с другими людьми и с самим собой
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						как повысить самооценку, низкая уверенность в себе
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						творческий кризис и кризис среднего возраста
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						проблемы с питанием (анорексия, булимия и пр.)
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						психологические консультации для желающих похудеть
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						проблемы на работе (с начальством, с подчиненными, с задачами, с каръерой, HR-консультирование)
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						принятие сложных решений
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						как избавиться от социофобии и других страхов, тревог и фобий
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						как преодолеть депрессию, грусть и потерю удовольствия от жизни
-					</li>
-					<li><i class="fa-li fa fa-check"></i>
-						перфекционизм, раздражительность, навязчивые мысли и поведение и др.
-					</li>
+					<?php $problems = [
+						'проблемы в отношениях с другими людьми и с самим собой',
+						'как повысить самооценку, низкая уверенность в себе',
+						'творческий кризис и кризис среднего возраста',
+						'проблемы с питанием (анорексия, булимия и пр.)',
+						'психологические консультации для желающих похудеть',
+						'проблемы на работе (с начальством, с подчиненными, с задачами, с каръерой, HR-консультирование)',
+						'принятие сложных решений',
+						'как избавиться от социофобии и других страхов, тревог и фобий',
+						'как преодолеть депрессию, грусть и потерю удовольствия от жизни',
+						'перфекционизм, раздражительность, навязчивые мысли и поведение и др.'
+					]; ?>
+					<?php foreach ($problems as $problem) : ?>
+						<li><i class="fa-li fa fa-check"></i>
+							<?= $problem; ?>
+						</li>
+					<?php endforeach; ?>
 				</ul><!-- end of .fa-ul -->
 				<?php endif; ?>
 			</div><!-- end of .col-sm-7 -->
@@ -125,64 +112,40 @@
 
 				<!-- fetch services data if exist -->
 				<?php $services_data = get_post_meta( get_the_id(), 'services_data', true ); ?>
-				<h1 class="text-center"><?= isset($services_data['heading']) ? $services_data['heading'] : 'Услуги психолога'; ?></h1>
+				<h1 class="text-center"><?= (isset($services_data['heading']) && $services_data['heading'] ) ? $services_data['heading'] : 'Услуги психолога'; ?></h1>
 				<h5 class="text-center">
-				<?= isset($services_data['comment']) ? $services_data['comment'] : 'Уважаемые клиенты! В настоящий момент я консультирую по скайпу или по электронной почте. По очным консультациям - уточняйте, пожалуйста, в индивидуальном порядке.'; ?>
+				<?= (isset($services_data['comment']) && $services_data['comment']) ? $services_data['comment'] : 'Уважаемые клиенты! В настоящий момент я консультирую по скайпу или по электронной почте. По очным консультациям - уточняйте, пожалуйста, в индивидуальном порядке.'; ?>
 				</h5>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-4">
-				<div class="box-left box">
-					<h2 class="text-center"><?= isset($services_data[1]['type']) ? $services_data[1]['type'] : 'Очная консультация'; ?></h2>
-					<h1 class="text-center"><?= isset($services_data[1]['value']) ? $services_data[1]['value'] : '$300'; ?></h1>
-					<ul class="fa-ul">
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[1]['point'][0]) ? $services_data[1]['point'][0] : '50 минут'; ?>
-						</li>
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[1]['point'][1]) ? $services_data[1]['point'][1] : 'Оплата по факту'; ?>
-						</li>
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[1]['point'][2]) ? $services_data[1]['point'][2] : 'Только наличными в офисе после приема'; ?>
-						</li>
-					</ul>
-				</div><!-- end of .box-left -->
-			</div><!-- end of .col-sm-4 -->
-			<div class="col-xs-12 col-sm-4">
-				<div class="box-center box">
-					<h2 class="text-center"><?= isset($services_data[2]['type']) ? $services_data[2]['type'] : 'Skype'; ?></h2>
-					<h1 class="text-center"><?= isset($services_data[2]['value']) ? $services_data[2]['value'] : '$200'; ?></h1>
-					<ul class="fa-ul">
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[2]['point'][0]) ? $services_data[2]['point'][0] : '50 минут'; ?>
-						</li>
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[2]['point'][1]) ? $services_data[2]['point'][1] : 'Оплата по факту'; ?>
-						</li>
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[2]['point'][2]) ? $services_data[2]['point'][2] : 'Оплата: PayPal, Яндекс. Деньги банковские карты'; ?>
-						</li>
-					</ul>
-				</div><!-- end of .box-center -->
-			</div><!-- end of .col-sm-4 -->
-			<div class="col-xs-12 col-sm-4">
-				<div class="box-right box">
-					<h2 class="text-center"><?= isset($services_data[3]['type']) ? $services_data[3]['type'] : 'Электронная почта'; ?></h2>
-					<h1 class="text-center"><?= isset($services_data[3]['value']) ? $services_data[3]['value'] : '$150'; ?></h1>
-					<ul class="fa-ul">
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[3]['point'][0]) ? $services_data[3]['point'][0] : '50 минут'; ?>
-						</li>
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[3]['point'][1]) ? $services_data[3]['point'][1] : 'Оплата по факту'; ?>
-						</li>
-						<li><i class="fa-li fa fa-check-square-o"></i>
-							<?= isset($services_data[3]['point'][2]) ? $services_data[3]['point'][2] : 'Оплата: PayPal, Яндекс. Деньги банковские карты'; ?>
-						</li>
-					</ul>
-				</div><!-- end of .box-right -->
-			</div><!-- end of .col-sm-4 -->
+			<?php $box = ['left', 'center', 'right']; ?>
+			<?php $value = [300, 200, 150]; ?>
+			<?php $type = ['Очная консультация', 'Skype', 'Электронная почта']; ?>
+			<?php $payments = [
+				'Только наличными в офисе после приема',
+				'Оплата: PayPal, Яндекс. Деньги банковские карты',
+				'Оплата: PayPal, Яндекс. Деньги банковские карты'
+			]; ?>
+			<?php for ($i=0; $i < 3; $i++) : ?>
+				<div class="col-xs-12 col-sm-4">
+					<div class="box-<?= $box[$i]; ?> box">
+						<h2 class="text-center"><?= (isset($services_data[$i+1]['type']) && $services_data[$i+1]['type'] ) ? $services_data[$i+1]['type'] : $type[$i]; ?></h2>
+						<h1 class="text-center"><?= (isset($services_data[$i+1]['value']) && $services_data[$i+1]['value'] ) ? $services_data[$i+1]['value'] : '$' . $value[$i]; ?></h1>
+						<ul class="fa-ul">
+							<li><i class="fa-li fa fa-check-square-o"></i>
+								<?= (isset($services_data[$i+1]['point'][0]) && $services_data[$i+1]['point'][0]) ? $services_data[$i+1]['point'][0] : '50 минут'; ?>
+							</li>
+							<li><i class="fa-li fa fa-check-square-o"></i>
+								<?= (isset($services_data[$i+1]['point'][1]) && $services_data[$i+1]['point'][1]) ? $services_data[$i+1]['point'][1] : 'Оплата по факту'; ?>
+							</li>
+							<li><i class="fa-li fa fa-check-square-o"></i>
+								<?= (isset($services_data[$i+1]['point'][2]) && $services_data[$i+1]['point'][2]) ? $services_data[$i+1]['point'][2] : $payments[$i]; ?>
+							</li>
+						</ul>
+					</div><!-- end of .box-left -->
+				</div><!-- end of .col-sm-4 -->
+			<?php endfor; ?>
 		</div><!-- end of .row -->
 	</div><!-- end of .container -->
 </section><!-- end of .services -->
@@ -194,21 +157,7 @@
 				<h1 class="text-center">Полезные статьи:</h1>
 			</div>
 		</div>
-		<div class="row">
-			<?php $args = array( 'numberposts' => '3', 'post_type' => 'post' ); ?>
-			<?php $recent_posts = wp_get_recent_posts( $args ); ?>
-			<?php foreach( $recent_posts as $recent ): ?>
-				<div class="col-xs-12 col-sm-4 articles-row">
-					<?php $url = wp_get_attachment_url( get_post_thumbnail_id($recent["ID"]) ); ?>
-					<img src="<?= $url; ?>" alt="...">
-					<div class="article">
-						<h5 class="text-center"><?= $recent["post_title"] ?></h5>
-						<p><?= $recent["post_excerpt"] ?></p>
-						<p class="text-center"><a href="<?= get_permalink( $recent["ID"] ); ?>">Узнать больше</a></p>
-					</div>
-				</div>
-			<?php endforeach; ?>
-		</div><!-- end of .row -->
+		<?php get_template_part( 'recent_posts' ); ?>
 	</div><!-- end of .container -->
 </section><!-- end of .articles -->
 
