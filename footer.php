@@ -17,13 +17,15 @@
 				<p class="text-center">&#169; 2015 - Все права защищены</p>
 			</div>
 			<div class="col-xs-12 col-sm-4 col-lg-4">
-				<div class="pull-left logo">
-					<a href="<?= esc_url( home_url( '/' ) ); ?>"><img src="<?= IMAGES; ?>/logo.png"/></a>
-				</div>
-				<div class="pull-left logo-text">
-					<h5><?php bloginfo( 'name' ); ?></h5>
-					<p><?php bloginfo( 'description' ); ?></p>
-				</div>
+				<table border="0">
+					<tr>
+						<td rowspan="2"><a href="<?= esc_url( home_url( '/' ) ); ?>"><img src="<?= IMAGES; ?>/logo.png"/></a></td>
+						<td class="logo-text"><h5><?php bloginfo( 'name' ); ?></h5></td>
+					</tr>
+					<tr>
+						<td class="logo-text"><p><?php bloginfo( 'description' ); ?></p></td>
+					</tr>
+				</table>
 			</div>
 			<div class="hidden-lg col-xs-12 footer-text">
 				<p class="text-center">&#169; 2015 - Все права защищены</p>
@@ -31,22 +33,6 @@
 		</div><!-- end of .row -->
 	</div><!-- end of .container -->
 </footer>
-<script type="text/javascript">
-    var k = jQuery.noConflict();
-    function equalHeight(group) {
-        var tallest = 0;
-        group.each(function() {
-            thisHeight = k(this).height();
-            if(thisHeight > tallest) {
-                tallest = thisHeight;
-            }
-        });
-        group.height(tallest);
-    }
-    k(document).ready(function(){
-    equalHeight(k(".box"));
-    });
-</script>
 <?php wp_footer(); ?>
 </body>
 </html>
