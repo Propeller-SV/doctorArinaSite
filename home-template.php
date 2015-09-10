@@ -27,7 +27,7 @@
 		<?php else : ?>
 		<div class="row">
 			<div class="col-xs-12">
-				<h2 class="text-center">Когнитивно-поведенческая психотерапия и консультирование.</h2>
+				<h2 class="text-center">Индивидуальное психологическое консультирование жертв домашнего насилия и психологическая помощь в психотерапии семьи.</h2>
 				<p class="text-center">В Одессе и других городах.</p>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 			<div class="col-xs-12 col-sm-5 paragraph">
 				<!-- fetch theme options -->
 				<?php $options = get_option('arina_theme_options'); ?>
-				<img src="<?= $options['arina_image'] ? $options['arina_image'] : IMAGES . '/img1.png'; ?>"/>
+				<img class="doctor" src="<?= $options['arina_image'] ? $options['arina_image'] : IMAGES . '/img1.png'; ?>"/>
 				<h3 class="text-center"><?php bloginfo( 'name' ); ?><br>
 				<span><?php bloginfo( 'description' ); ?></span></h3>
 				<h5 class="text-center"><?= $options['phone'] ? $options['phone'] : '80(50) 354 311 72'; ?><span><i class="fa fa-skype"></i> <?= $options['skype'] ? $options['skype'] : 'arina@'; ?></span></h5>
@@ -149,6 +149,30 @@
 		</div><!-- end of .row -->
 	</div><!-- end of .container -->
 </section><!-- end of .services -->
+
+<section class="review">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2 class="text-center">Отзывы клиентов:</h2>
+				<p class="text-center">
+					Я обратилась с проблемой социофобии и была абсолютно уверена, что это мой крест на всю  оставшуюся жизнь.  Её длительность обусловливается тяжестью эмоциональных — психических расстройств у проблемного члена семьи, выраженностью межличностных конфликтов в семье, мотивацией членов семьи к достижению терапевтических изменений. СПАСИБО!!!(апрель 2014г.)
+				</p>
+				<div class="user">
+					<h1 class="text-center"><img src="<?= IMAGES; ?>/user-woman.png"></h1>
+					<p class="text-center">Наталья, 35 лет</p>
+				</div>
+				<p class="text-center">
+					Я обратился с проблемой социофобии и был абсолютно уверен, что это мой крест на всю  оставшуюся жизнь.Её длительность обусловливается тяжестью эмоциональных — психических расстройств у проблемного члена семьи, выраженностью межличностных конфликтов в семье, мотивацией членов семьи к достижению терапевтических изменений. СПАСИБО!!!(апрель 2014г.)
+				</p>
+				<div class="user">
+					<h1 class="text-center"><img src="<?= IMAGES; ?>/user-man.png"></h1>
+					<p class="text-center">Роман, 35 лет</p>
+				</div>
+			</div>
+		</div><!-- end of .row -->
+	</div><!-- end of .container -->
+</section><!-- end of .review -->
 
 <section class="articles">
 	<div class="container">
