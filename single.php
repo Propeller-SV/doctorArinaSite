@@ -10,13 +10,13 @@
 <section class="psychology">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-5 paragraph">
+			<div class="col-xs-12 col-sm-5 paragraph-1">
 				<!-- fetch the post thumbnail -->
 				<?php $url = wp_get_attachment_url( get_post_thumbnail_id(get_the_id()) ); ?>
 				<img src="<?= $url; ?>" alt="" class="hidden-xs libra">
 				<!-- fetch theme options -->
 				<?php $options = get_option('arina_theme_options'); ?>
-				<img class="doctor" src="<?= $options['arina_image'] ? $options['arina_image'] : IMAGES . '/img1.png'; ?>"/>
+				<img class="doctor-article" src="<?= $options['arina_image'] ? $options['arina_image'] : IMAGES . '/img1.png'; ?>"/>
 				<!-- Blog name and description -->
 				<h3 class="text-center"><?php bloginfo( 'name' ); ?><br>
 				<span><?php bloginfo( 'description' ); ?></span></h3>
