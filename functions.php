@@ -100,7 +100,7 @@ function deliver_mail() {
 		$name		= sanitize_text_field( $_POST["cf_name"] );
 		$phone		= preg_replace('/[^0-9]/', '', $_POST["cf_phone"] );
 		$subject	= 'Arina\'s Site response';
-		$message	= "From: $name, $phone" . "\r\n" . esc_textarea( $_POST["cf_message"] );
+		$message	= "Name: $name" . "\r\n" . "Phone: $phone" . "\r\n" . esc_textarea( $_POST["cf_message"] );
 
 		// get the blog administrator's email address
 		$to = get_option( 'admin_email' );
@@ -115,7 +115,7 @@ function deliver_mail() {
 			<script>
 				$(document).ready(function() {
 				    // $(".success").trigger('click');
-				    alert('Success');
+				    // alert('Success');
 				});
 			</script>
 			<?php
@@ -126,7 +126,7 @@ function deliver_mail() {
 			<script>
 				$(document).ready(function() {
 				    // $(".error").trigger('click');
-				    alert('Error');
+				    // alert('Error');
 				});
 			</script>
 			<?php
