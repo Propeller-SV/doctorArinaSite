@@ -15,7 +15,7 @@
 	<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 	<meta name="author" content="">
 
-	<title><?php wp_title( '' ); ?></title>
+	<title><?php wp_title( '' ); ?>Арина Боровик психолог-консультант</title>
 
 	<!-- Just for debugging purposes. Don't actually copy this line! -->
 	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -34,13 +34,15 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-4 col-md-6">
-					<div class="pull-left logo">
-						<a href="<?= esc_url( home_url( '/' ) ); ?>"><img src="<?= IMAGES; ?>/logo.png"/></a>
-					</div>
-					<div class="pull-left logo-text">
-						<h5><?php bloginfo( 'name' ); ?></h5>
-						<p><?php bloginfo( 'description' ); ?></p>
-					</div>
+					<table border="0">
+						<tr>
+							<td rowspan="2"><a href="<?= esc_url( home_url( '/' ) ); ?>"><img src="<?= IMAGES; ?>/logo.png"/></a></td>
+							<td class="logo-text"><h5><?php bloginfo( 'name' ); ?></h5></td>
+						</tr>
+						<tr>
+							<td class="logo-text"><p><?php bloginfo( 'description' ); ?></p></td>
+						</tr>
+					</table>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-3 phone-text">
 					<!-- fetch theme options -->
@@ -48,7 +50,7 @@
 					<h5>Звоните прямо сейчас! <span><?= $options['phone'] ? $options['phone'] : '80(50) 354 311 72'; ?></span></h5>
 				</div>
 				<div class="col-xs-12 col-sm-4 col-md-3 email-text">
-					<p class="text-right"><?= $options['email'] ? $options['email'] : 'arinapsihologyst@gmail.com'; ?></p>
+					<p><?= $options['email'] ? $options['email'] : 'arinapsihologyst@gmail.com'; ?></p>
 				</div>
 			</div><!-- end of .row -->
 		</div><!-- end of .container -->
